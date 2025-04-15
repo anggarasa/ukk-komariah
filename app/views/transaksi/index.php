@@ -1,13 +1,11 @@
 <?php require_once '../app/views/layouts/header.php'?>
 
-<?php require_once '../app/views/layouts/header.php'?>
-
 <!-- Main Content -->
 <div class="flex-grow container mx-auto px-4 py-8">
     <div class="mb-6 text-center">
-        <h2 class="text-3xl font-bold text-pink-600 mb-2">Transaksi Baru</h2>
+        <h2 class="text-3xl font-bold text-purple-700 mb-2">Transaksi Baru</h2>
         <p class="text-gray-600">Isi detail transaksi pelanggan</p>
-        <div class="w-24 h-1 bg-pink-400 mx-auto mt-2 rounded-full"></div>
+        <div class="w-32 h-1 bg-purple-500 mx-auto mt-2 rounded-full"></div>
     </div>
 
     <!-- Transaction Form -->
@@ -15,13 +13,13 @@
         <!-- Customer & Product Selection -->
         <div class="lg:col-span-2 space-y-6">
             <!-- Customer Selection -->
-            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-pink-500 transform transition-all hover:scale-[1.01]">
-                <h3 class="text-xl font-semibold mb-4 text-pink-600 flex items-center">
-                    <i class="fas fa-user mr-3 p-2 bg-pink-100 rounded-full text-pink-500"></i>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-600 transform transition-all hover:scale-[1.01] hover:shadow-xl">
+                <h3 class="text-xl font-semibold mb-4 text-purple-700 flex items-center">
+                    <i class="fas fa-user mr-3 p-3 bg-purple-100 rounded-full text-purple-600"></i>
                     Pilih Pelanggan
                 </h3>
                 <div class="relative">
-                    <select id="customer" class="w-full p-3 border border-pink-200 rounded-lg focus:ring-pink-500 focus:border-pink-500 bg-white transition-all">
+                    <select id="customer" class="w-full p-3 border border-purple-200 rounded-lg focus:ring-purple-500 focus:border-purple-500 bg-white transition-all">
                         <option value="" disabled selected>Pilih pelanggan</option>
                         <?php foreach ($data['pelanggans'] as $pelanggan): ?>
                             <option value="<?= $pelanggan['id'] ?>"><?= $pelanggan['nama'] ?></option>
@@ -31,30 +29,30 @@
             </div>
 
             <!-- Product Selection -->
-            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-pink-500 transform transition-all hover:scale-[1.01]">
-                <h3 class="text-xl font-semibold mb-4 text-pink-600 flex items-center">
-                    <i class="fas fa-shopping-cart mr-3 p-2 bg-pink-100 rounded-full text-pink-500"></i>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-600 transform transition-all hover:scale-[1.01] hover:shadow-xl">
+                <h3 class="text-xl font-semibold mb-4 text-purple-700 flex items-center">
+                    <i class="fas fa-shopping-cart mr-3 p-3 bg-purple-100 rounded-full text-purple-600"></i>
                     Pilih Produk
                 </h3>
                 <div class="relative mb-4">
                     <div class="flex space-x-2">
-                        <select id="product" class="w-full p-3 border border-pink-200 rounded-lg focus:ring-pink-500 focus:border-pink-500 bg-white transition-all">
+                        <select id="product" class="w-full p-3 border border-purple-200 rounded-lg focus:ring-purple-500 focus:border-purple-500 bg-white transition-all">
                             <option value="" disabled selected>Pilih produk</option>
                             <?php foreach ($data['produks'] as $produk): ?>
                                 <option value="<?= $produk['id'] ?>" data-price="<?= $produk['harga_produk'] ?>" data-stock="<?= $produk['stok'] ?>"><?= $produk['nama_produk'] ?> - Rp <?= number_format($produk['harga_produk'], 0, ',', '.') ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <button id="add-product" class="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-all focus:ring-2 focus:ring-pink-300 flex items-center justify-center">
+                        <button id="add-product" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-all focus:ring-2 focus:ring-purple-300 flex items-center justify-center">
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Product List -->
-                <div class="overflow-x-auto rounded-lg">
+                <div class="overflow-x-auto rounded-lg shadow">
                     <table class="min-w-full bg-white rounded-xl overflow-hidden">
                         <thead>
-                        <tr class="bg-pink-100 text-pink-800 text-sm font-medium">
+                        <tr class="bg-purple-100 text-purple-800 text-sm font-medium">
                             <th class="py-3 px-4 text-left rounded-tl-lg">Produk</th>
                             <th class="py-3 px-4 text-center">Harga</th>
                             <th class="py-3 px-4 text-center">Jumlah</th>
@@ -62,61 +60,63 @@
                             <th class="py-3 px-4 text-center rounded-tr-lg">Aksi</th>
                         </tr>
                         </thead>
-                        <tbody id="product-list" class="text-gray-600 divide-y divide-pink-100">
+                        <tbody id="product-list" class="text-gray-600 divide-y divide-purple-100">
                         <!-- Products will be added here by JavaScript -->
                         </tbody>
                     </table>
                 </div>
 
-                <div id="empty-cart-message" class="text-center py-8 text-gray-500">
-                    <i class="fas fa-shopping-cart text-5xl mb-4 text-pink-300"></i>
-                    <p class="text-pink-400">Belum ada produk dipilih</p>
+                <div id="empty-cart-message" class="text-center py-8 text-gray-500 mt-4">
+                    <div class="bg-purple-50 rounded-lg p-6 border border-purple-100">
+                        <i class="fas fa-shopping-cart text-5xl mb-4 text-purple-300"></i>
+                        <p class="text-purple-500">Belum ada produk dipilih</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Payment Summary -->
         <div class="lg:col-span-1">
-            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-pink-500 sticky top-20 transform transition-all hover:scale-[1.01]">
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-600 sticky top-20 transform transition-all hover:scale-[1.01] hover:shadow-xl">
                 <h3 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
-                    <i class="fas fa-credit-card mr-2 text-pink-500"></i>
+                    <i class="fas fa-credit-card mr-3 p-2 bg-purple-100 rounded-full text-purple-600"></i>
                     Ringkasan Pembayaran
                 </h3>
 
                 <div class="space-y-4">
-                    <div class="flex justify-between border-b pb-3">
+                    <div class="flex justify-between border-b border-purple-100 pb-3">
                         <span class="text-gray-600">Subtotal</span>
                         <span id="subtotal" class="font-semibold">Rp 0</span>
                     </div>
 
-                    <div class="flex justify-between border-b pb-3">
+                    <div class="flex justify-between border-b border-purple-100 pb-3">
                         <span class="text-gray-600">Pajak (10%)</span>
                         <span id="tax" class="font-semibold">Rp 0</span>
                     </div>
 
-                    <div class="flex justify-between text-lg">
+                    <div class="flex justify-between text-lg bg-purple-50 p-3 rounded-lg">
                         <span class="font-bold text-gray-800">Total</span>
-                        <span id="total" class="font-bold text-pink-600">Rp 0</span>
+                        <span id="total" class="font-bold text-purple-700">Rp 0</span>
                     </div>
 
                     <div class="mt-6">
-                        <label class="block text-gray-700 mb-2" for="payment">
+                        <label class="block text-gray-700 mb-2 font-medium" for="payment">
                             Uang yang Diberikan
                         </label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <span class="text-gray-500">Rp</span>
                             </div>
-                            <input type="number" id="payment" class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="0">
+                            <input type="number" id="payment" class="block w-full pl-10 pr-3 py-3 border border-purple-200 rounded-lg focus:ring-purple-500 focus:border-purple-500" placeholder="0">
                         </div>
                     </div>
 
-                    <div class="flex justify-between text-lg text-green-600">
-                        <span class="font-bold">Kembalian</span>
-                        <span id="change" class="font-bold">Rp 0</span>
+                    <div class="flex justify-between text-lg bg-green-50 p-3 rounded-lg">
+                        <span class="font-bold text-green-700">Kembalian</span>
+                        <span id="change" class="font-bold text-green-600">Rp 0</span>
                     </div>
 
-                    <button id="submit-transaction" class="w-full bg-pink-600 text-white py-3 px-4 rounded-lg hover:bg-pink-700 transition mt-4 disabled:bg-gray-400 disabled:cursor-not-allowed">
+                    <button id="submit-transaction" class="w-full bg-purple-600 text-white py-4 px-4 rounded-lg hover:bg-purple-700 transition mt-4 disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg hover:shadow-purple-200 flex items-center justify-center">
                         <i class="fas fa-check-circle mr-2"></i>
                         Proses Transaksi
                     </button>
