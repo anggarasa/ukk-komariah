@@ -13,8 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#EC4899',
-                        secondary: '#FBCFE8',
+                        primary: 'oklch(55.8% 0.288 302.321)',
+                        secondary: 'oklch(49.6% 0.265 301.924)',
                         dark: '#111827',
                     },
                     fontFamily: {
@@ -29,8 +29,8 @@
             font-family: 'Poppins', sans-serif;
         }
         .sidebar-link:hover {
-            background-color: #FBCFE8;
-            color: #EC4899;
+            background-color: oklch(94.6% 0.033 307.174);
+            color: oklch(55.8% 0.288 302.321);
         }
         .sidebar-link.active {
             background-color: #EC4899;
