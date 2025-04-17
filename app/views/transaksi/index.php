@@ -381,7 +381,7 @@
             };
 
             // Send transaction to server
-            fetch('/ukk-saskia/public/transaksi/create', {
+            fetch('/ukk-komariah/public/transaksi/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
