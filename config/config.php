@@ -2,7 +2,7 @@
 
 
 // Ubah ini sesuai lokasi proyek kamu di localhost atau hosting
-define('BASE_URL', 'http://localhost/ukk-komariah/public');
+define('BASE_URL', 'http://ukk-komariah.test');
 
 // Konfigurasi database
 define('DB_HOST', 'localhost');
